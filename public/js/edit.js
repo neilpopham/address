@@ -32,7 +32,7 @@ $(document).ready(function() {
         if (blnValid) {
             const objData = {}
             $.each(arrFields, function (_, strName) {
-                objData[strName] = $.trim($("input[name=" + strName + "]").val());
+                objData[strName] = $.trim($("*[name=" + strName + "]").val());
             });
             objData.postcode = objData.postcode.toUpperCase();
             $.get(
