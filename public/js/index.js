@@ -67,10 +67,12 @@ $(document).ready(function() {
 
     function doAjax(objData, objCallback)
     {
+        mprogress.start();
         $.get(
             '/public/address/data',
             objData,
             function(strHtml) {
+                mprogress.end();
                 $('#container')
                     .html(strHtml);
                 $('#addresses')
@@ -106,9 +108,7 @@ $(document).ready(function() {
                 offset: 0,
             }
         );
-        $('#search').addClass("waiting");
-        mprogress.start();
-        doAjax(objData, function() { $('#search').removeClass("waiting"); mprogress.end(); });
+        doAjax(objData);
     }
 
     $('#search').keyup();
