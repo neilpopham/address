@@ -19,6 +19,8 @@
                     <?= $address->tel ?>
                     <br />
                     <a href="mailto:<?= $address->email ?>"><?= $address->email ?></a>
+                    <br />
+                    <?= date("jS F Y", strtotime($address->dob)); ?>
                 </p>
             </div>
             <div class="card-section">

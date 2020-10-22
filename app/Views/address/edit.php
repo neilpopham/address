@@ -31,7 +31,7 @@
 
         <div class="grid-x grid-padding-x">
             <div class="cell">
-                <h2><?= esc($title); ?></h2>
+                <h2><?= esc($title); ?> <?= $address->dob ?></h2>
                 <input type="hidden" name="pk_id" value="<?= $address->pk_id ?>" />
             </div>
         </div>
@@ -96,18 +96,24 @@
         </div>
 
         <div class="grid-x grid-padding-x">
-            <div class="medium-6 cell">
+            <div class="medium-4 cell">
                 <label>City <span class="required">*</span>
                     <input type="text" name="city" placeholder="City"
                         maxlength="100"
                         value="<?= esc($address->city); ?>">
                 </label>
             </div>
-            <div class="medium-6 cell">
+            <div class="medium-4 cell">
                 <label>Post Code <span class="required">*</span>
                     <input type="text" name="postcode" placeholder="Post Code"
                         maxlength="10"
                         value="<?= esc($address->postcode); ?>">
+                </label>
+            </div>
+            <div class="medium-4 cell">
+                <label>Date of Birth <span class="required">*</span>
+                    <input type="date" name="dob"
+                         value="<?= $address->dob ?>">
                 </label>
             </div>
         </div>

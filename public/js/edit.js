@@ -7,6 +7,7 @@ $(document).ready(function() {
     const arrRequired = [
         'first_name',
         'last_name',
+        'dob',
         'address_1',
         'city',
         'postcode',

@@ -11,6 +11,7 @@ class AddressModel extends Model
         'first_name',
         'middle_name',
         'last_name',
+        'dob',
         'address_1',
         'address_2',
         'address_3',
