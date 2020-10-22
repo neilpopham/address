@@ -88,6 +88,7 @@ class Address extends Controller
         $arrFields = $this->request->getGet();
         $intId = $arrFields["pk_id"];
         unset($arrFields["pk_id"]);
+        $arrFields['fk_salutation_id'] = (int) $arrFields['fk_salutation_id'];
         $objAddressModel = new AddressModel();
         if ($intId) {
             $objAddressModel->update($intId, $arrFields);

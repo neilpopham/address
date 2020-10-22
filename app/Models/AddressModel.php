@@ -7,6 +7,7 @@ class AddressModel extends Model
     protected $table = 'tbl_address';
     protected $primaryKey = 'pk_id';
     protected $allowedFields = [
+        'fk_salutation_id',
         'first_name',
         'middle_name',
         'last_name',
