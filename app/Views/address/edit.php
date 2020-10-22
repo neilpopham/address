@@ -31,7 +31,7 @@
 
         <div class="grid-x grid-padding-x">
             <div class="cell">
-                <h2><?= esc($title); ?> <?= $address->dob ?></h2>
+                <h2><?= esc($title); ?></h2>
                 <input type="hidden" name="pk_id" value="<?= $address->pk_id ?>" />
             </div>
         </div>
