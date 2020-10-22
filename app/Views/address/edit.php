@@ -121,14 +121,14 @@
         <div class="grid-x grid-padding-x">
             <div class="medium-6 cell">
                 <label>Telephone Number <span class="required">*</span>
-                    <input type="text" name="tel" placeholder="Telephone Number"
+                    <input type="tel" name="tel" placeholder="Telephone Number"
                         maxlength="20"
                         value="<?= esc($address->tel); ?>">
                 </label>
             </div>
             <div class="medium-6 cell">
                 <label>Email Address <span class="required">*</span>
-                    <input type="text" name="email" placeholder="Email Address"
+                    <input type="email" name="email" placeholder="Email Address"
                         maxlength="100"
                         value="<?= esc($address->email); ?>">
                 </label>
