@@ -1,0 +1,15 @@
+.card.disabled_1 .card-section {
+    color: silver !important;
+}
+
+.waiting: {
+    color: silver !important;
+}
+
+span.required {
+    color: #cc4b37;
+}
+
+.error {
+    border-color: #cc4b37 !important;
+}

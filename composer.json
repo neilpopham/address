@@ -1,0 +1,8 @@
+{
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "codeigniter4/framework": "^4.0",
+        "foundation/foundation": "dev-master"
+    }
+}
