@@ -11,7 +11,7 @@ class Address extends Controller
         return view(
             'address/index',
             [
-                'limit' => 2,
+                'limit' => 12,
                 'offset' => $intOffset,
                 'search' => "",
                 'hidden' => 0,
