@@ -157,5 +157,5 @@
         integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o="
         crossorigin="anonymous"></script>
     <script src='/public/js/mprogress.min.js'></script>
-    <script src="/public/js/edit.js"></script>
+    <script type="module" src="/public/js/edit.js"></script>
 </html>

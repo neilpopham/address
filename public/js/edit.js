@@ -1,3 +1,5 @@
+import * as Validation from './validation.js'
+
 $(document).ready(function() {
 
     const mprogress = new Mprogress({ template: 3 });
@@ -54,82 +56,31 @@ $(document).ready(function() {
 
     $.each(arrRequired, function(_, strName) {
         $("input[name=" + strName + "]").keyup(function() {
-            validateRequired($(this));
+            Validation.validateRequired($(this));
         });
     });
 
     $("input[name=postcode]").keyup(function(e) {
-        validatePostcode($(this));
+        Validation.validatePostcode($(this));
     });
 
     $("input[name=tel]").keyup(function(e) {
-        validateTel($(this));
+        Validation.validateTel($(this));
     });
 
     $("input[name=email]").keyup(function(e) {
-        validateEmail($(this));
+        Validation.validateEmail($(this));
     });
 
     function validateForm()
     {
         let blnValid = true;
         $.each(arrRequired, function(_, strName) {
-            blnValid &= validateRequired($("input[name=" + strName + "]"));
+            blnValid &= Validation.validateRequired($("input[name=" + strName + "]"));
         });
-        blnValid &= validatePostcode($("input[name=postcode]"));
-        blnValid &= validateTel($("input[name=tel]"));
-        blnValid &= validateEmail($("input[name=email]"));
+        blnValid &= Validation.validatePostcode($("input[name=postcode]"));
+        blnValid &= Validation.validateTel($("input[name=tel]"));
+        blnValid &= Validation.validateEmail($("input[name=email]"));
         return blnValid;
     }
-
-    function validateRequired(objElement)
-    {
-        return addError(objElement, objElement.val().length > 0);
-    }
-
-    function validatePostcode(objElement)
-    {
-        return addError(objElement, isValidPostcode(objElement.val()));
-    }
-
-    function validateTel(objElement)
-    {
-        return addError(objElement, isValidTel(objElement.val()));
-    }
-
-    function validateEmail(objElement)
-    {
-        return addError(objElement, isValidEmail(objElement.val()));
-    }
-
-    function isValidPostcode(strValue) {
-        strValue = strValue.replace(/\s/g, "");
-        var re = /^[A-Z]{1,2}[0-9][A-Z0-9]? ?[0-9][A-Z]{2}$/i;
-        return re.test(strValue);
-    }
-
-    function isValidTel(strValue)
-    {
-        strValue = strValue.replace(/\s/g, "");
-        var re = /^\d+$/;
-        return re.test(strValue);
-    }
-
-    function isValidEmail(strValue)
-    {
-        strValue = strValue.replace(/\s/g, "");
-        var re = /^[^@]+@[^\.]+\..+$/;
-        return re.test(strValue);
-    }
-
-    function addError(objElement, blnValid)
-    {
-        if (blnValid) {
-            objElement.removeClass("error");
-        } else {
-            objElement.addClass("error");
-        }
-        return blnValid;
-    }
-
 });
