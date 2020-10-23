@@ -5,18 +5,36 @@ use CodeIgniter\Entity;
 class Address extends Entity
 {
     public $salutation;
+    protected static $salutations;
 
+    /**
+     * Sets the salutation property from a salutation id.
+     */
     public function setSalutation($intId = null)
     {
         if (is_null($intId)) {
             $intId = $this->fk_salutation_id;
         }
-        $objSalutationModel = new \App\Models\SalutationModel();
-        $objSalutation = $objSalutationModel->find($this->fk_salutation_id);
-        $this->salutation = $objSalutation->value ?? "";
+
+        // Use a static array so we don't hit the database too often on a find all.
+        if (is_null(self::$salutations)) {
+            $objSalutationModel = new \App\Models\SalutationModel();
+            $arrSalutations = $objSalutationModel->orderBy('pk_id', 'asc')->findAll();
+            self::$salutations = [];
+            foreach ($arrSalutations as $objSalutation) {
+                self::$salutations[$objSalutation->pk_id] = $objSalutation->value;
+            }
+        }
+
+        // Get our string from our static array
+        $this->salutation = self::$salutations[$this->fk_salutation_id] ?? null;
+
         return $this->salutation;
     }
 
+    /**
+     * Returns the full name ([salutions] [first] [middle] [last]).
+     */
     public function fullName()
     {
         return self::concat(
@@ -29,6 +47,9 @@ class Address extends Entity
         );
     }
 
+    /**
+     * Returns the full address.
+     */
     public function fullAddress($strJoin = ", ")
     {
         return self::concat(
@@ -43,6 +64,9 @@ class Address extends Entity
         );
     }
 
+    /**
+     * Reduces an array to populated values and concatenates them to a string.
+     */
     protected static function concat($arrData, $strJoin = " ")
     {
         return implode($strJoin, array_filter($arrData));
