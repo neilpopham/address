@@ -27,7 +27,7 @@ class Address extends Entity
         }
 
         // Get our string from our static array
-        $this->salutation = self::$salutations[$this->fk_salutation_id] ?? null;
+        $this->salutation = self::$salutations[$intId] ?? null;
 
         return $this->salutation;
     }
