@@ -46,12 +46,9 @@ class Address extends Controller
                 break;
 
             case "showing":
-                //$intHidden = $this->request->getGet("hidden", FILTER_VALIDATE_INT);
-
                 break;
 
             case "search":
-                //$strSearch = $this->request->getGet("search");
                 break;
         }
 
@@ -66,18 +63,23 @@ class Address extends Controller
         );
     }
 
-    public function edit($slug = null)
+    public function edit($intId = null)
     {
         $objSalutationModel = new \App\Models\SalutationModel();
         $data['salutations'] = $objSalutationModel->orderBy('pk_id', 'asc')->findAll();
 
-        if (is_null($slug)) {
+        if (is_null($intId)) {
             $data['address'] = new \App\Entities\Address();
             $data['title'] = "New Address";
         } else {
             $objAddressModel = new AddressModel();
-            $data['address'] = $objAddressModel->find($slug);
-            $data['title'] = $data['address']->fullName();
+            $data['address'] = $objAddressModel->find($intId);
+            if (empty($data['address'])) {
+                $data['address'] = new \App\Entities\Address();
+                $data['title'] = "New Address";
+            } else {
+                $data['title'] = $data['address']->fullName();
+            }
         }
 
         return view('address/edit', $data);

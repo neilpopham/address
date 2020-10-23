@@ -26,6 +26,9 @@ class AddressModel extends Model
 
     protected function setSalutation($data)
     {
+        if (empty($data['data'])) {
+            return;
+        }
         if (is_array($data['data'])) {
             foreach ($data['data'] as &$objAddress) {
                 $objAddress->setSalutation();
