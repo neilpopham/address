@@ -6,7 +6,7 @@ use CodeIgniter\Controller;
 class Address extends Controller
 {
     /**
-     * /address/
+     * /address
      * Displays the list of addresses.
      */
     public function index()
@@ -110,7 +110,7 @@ class Address extends Controller
     }
 
     /**
-     * /address/edit
+     * /address/save
      * Handles the ajax call to save data from the edit form.
      */
     public function save()
