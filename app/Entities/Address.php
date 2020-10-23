@@ -16,7 +16,7 @@ class Address extends Entity
             $intId = $this->fk_salutation_id;
         }
 
-        // Use a static array so we don't hit the database too often on a find all.
+        // Use a static array so we don't hit the database too often on a findAll.
         if (is_null(self::$salutations)) {
             $objSalutationModel = new \App\Models\SalutationModel();
             $arrSalutations = $objSalutationModel->orderBy('pk_id', 'asc')->findAll();
@@ -33,7 +33,7 @@ class Address extends Entity
     }
 
     /**
-     * Returns the full name ([salutions] [first] [middle] [last]).
+     * Returns the full name ([salution] [first] [middle] [last]).
      */
     public function fullName()
     {
@@ -48,7 +48,7 @@ class Address extends Entity
     }
 
     /**
-     * Returns the full address.
+     * Returns the full address as a string.
      */
     public function fullAddress($strJoin = ", ")
     {
