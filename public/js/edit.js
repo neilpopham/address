@@ -1,7 +1,5 @@
 $(document).ready(function() {
 
-    if (console) console.log("edit.js");
-
     const mprogress = new Mprogress({ template: 3 });
 
     const arrRequired = [
@@ -62,10 +60,6 @@ $(document).ready(function() {
 
     $("input[name=postcode]").keyup(function(e) {
         validatePostcode($(this));
-    });
-
-    $("input[name=tel]").keyup(function(e) {
-        validateTel($(this));
     });
 
     $("input[name=tel]").keyup(function(e) {

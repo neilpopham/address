@@ -42,7 +42,6 @@ class Address
 
         // Get count of all records
         $objQuery = $objConn->query("SELECT COUNT(1) AS total FROM tbl_address {$strWhere}");
-        $objConn->close();
 
         // Add some pgination variables
         $arrParams['count'] = count($arrParams['data']);

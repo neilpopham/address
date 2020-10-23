@@ -24,6 +24,9 @@ class AddressModel extends Model
     protected $returnType = '\App\Entities\Address';
     protected $afterFind = ['setSalutation'];
 
+    /**
+     * After a find this will populate the salutation property for all records.
+     */
     protected function setSalutation($data)
     {
         if (empty($data['data'])) {

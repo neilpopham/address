@@ -1,7 +1,5 @@
 $(document).ready(function() {
 
-    if (console) console.log("index.js");
-
     var mprogress = new Mprogress({ template: 3 });
     var strSearch = $('#search').val();
     var intSearch = null;
