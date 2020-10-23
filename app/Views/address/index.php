@@ -27,7 +27,9 @@
             </div>
             <div class="cell large-7 medium-5">
                 <div class="input-group">
-                    <input id="search" class="input-group-field" type="text" value="<?= esc($search); ?>" />
+                    <input id="search" class="input-group-field"
+                        type="text" value="<?= esc($search); ?>"
+                        placeholder="Search for a name" />
                     <button type="button"
                         id="clear" class="input-group-button primary button">Clear</button>
                 </div>
