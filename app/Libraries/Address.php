@@ -40,6 +40,11 @@ class Address
             $strWhere = "WHERE {$strWhere}";
         }
 
+        // If we have no records
+        if (empty($arrParams['data'])) {
+            return view('address/empty', $arrParams);
+        }
+
         // Get count of all records
         $objQuery = $objConn->query("SELECT COUNT(1) AS total FROM tbl_address {$strWhere}");
 
